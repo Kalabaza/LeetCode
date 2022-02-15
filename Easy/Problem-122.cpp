@@ -11,10 +11,10 @@
 #include <iostream>
 int maxProfit(std::vector<int> &prices) {
     int profit = 0;
-    for(uint buy = 0; buy < prices.size(); ++buy) {
+    for(uint32_t buy = 0; buy < prices.size(); ++buy) {
         // find the best time to sell, as long as there is an increment in the stock
         // price move to the next position
-        uint sell = buy + 1;
+        uint32_t sell = buy + 1;
         while(sell < prices.size() && prices[sell - 1] < prices[sell]) ++sell;
         // NOTE: since the sell variable holds the position after the actual
         // best selling point, just decrement it by one prior to checking to usage
@@ -32,7 +32,7 @@ int maxProfit(std::vector<int> &prices) {
 
 int _maxProfit(std::vector<int> &prices) {
     int profit = 0;
-    for(uint ind = 1; ind < prices.size(); ++ind) {
+    for(uint32_t ind = 1; ind < prices.size(); ++ind) {
         if(prices[ind] > prices[ind - 1])
             profit += (prices[ind] - prices[ind - 1]);
     }

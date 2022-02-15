@@ -7,15 +7,15 @@
  *
  * Rotate the image by 90 degrees (clockwise).
  */
-void rotate(std::vector<std::vector<int>>& matrix) {
+void rotate(std::vector<std::vector<int32_t>>& matrix) {
     // this is the maximum index that a value can use
-    uint size = matrix.size() - 1;
+   int32_t size = matrix.size() - 1;
     // will work on levels on the matrix, the most outer level is the number 0
-    for(uint level = 0; level < matrix.size() / 2; ++level) {
+    for(int32_t level = 0; level < matrix.size() / 2; ++level) {
         // this will iterate thru the values
-        for(uint ind = level; ind < size - level; ++ind) {
+        for(int32_t ind = level; ind < size - level; ++ind) {
             // save the value from the upper left position for later
-            int tmp = matrix[level][ind];
+           int32_t tmp = matrix[level][ind];
 
             // copy the lower left value to the upper left position
             matrix[level][ind] = matrix[size - ind][level];
@@ -33,12 +33,12 @@ void rotate(std::vector<std::vector<int>>& matrix) {
 }
 
 TEST(PROBLEM_48, Example1) {
-    std::vector<std::vector<int>> input{
+    std::vector<std::vector<int32_t>> input{
         {1,2,3},
         {4,5,6},
         {7,8,9}
     };
-    std::vector<std::vector<int>> output{
+    std::vector<std::vector<int32_t>> output{
         {7,4,1},
         {8,5,2},
         {9,6,3}
@@ -48,13 +48,13 @@ TEST(PROBLEM_48, Example1) {
 }
 
 TEST(PROBLEM_48, Example2) {
-    std::vector<std::vector<int>> input{
+    std::vector<std::vector<int32_t>> input{
         { 5, 1, 9,11},
         { 2, 4, 8,10},
         {13, 3, 6, 7},
         {15,14,12,16}
     };
-    std::vector<std::vector<int>> output{
+    std::vector<std::vector<int32_t>> output{
         {15,13, 2, 5},
         {14, 3, 4, 1},
         {12, 6, 8, 9},

@@ -9,20 +9,20 @@
  */
 
 int strStr(std::string haystack, std::string needle) {
-    uint n = needle.size();
+   int32_t n = needle.size();
     // if the needle is an empty string, just retrun 0 per convention
     if(n == 0)
         return 0;
-    uint h = haystack.size();
+    int32_t h = haystack.size();
     // only do the validation if the needle is shorter than or equal in size to the haystack
     if(n <= h) {
         // Go all over the text from the haystack until the first letter of the needle is found
         // but take in consideration the size of the needle to avoid checking positions that will
         // not work (remaining characters with a size lower than the needle)
-        for(uint i = 0; i <= h - n; ++i) {
+        for(int32_t i = 0; i <= h - n; ++i) {
             // Then, when this letter is found search for the rest of the needle
             if(haystack[i] == needle[0]) {
-                for(uint j = 0; j < n; ++j) {
+                for(int32_t j = 0; j < n; ++j) {
                     // As soon as one character is not equal exit this loop
                     if(haystack[i + j] != needle[j])
                         break;

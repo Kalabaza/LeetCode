@@ -20,7 +20,7 @@
  */
 int myAtoi(std::string str) {
     int res = 0;
-    uint ind = 0;
+    int32_t ind = 0;
     bool neg = false;
     bool pos = false;
     bool par = false;
@@ -95,7 +95,7 @@ TEST(PROBLEM_8, Example4) {
 
 TEST(PROBLEM_8, Example5) {
     std::string input("-91283472332");
-    ASSERT_EQ(-2147483648, myAtoi(input));
+    ASSERT_EQ(-2147483647 - 1, myAtoi(input));
 }
 
 TEST(PROBLEM_8, Example6) {
@@ -110,7 +110,7 @@ TEST(PROBLEM_8, Example7) {
 
 TEST(PROBLEM_8, Example8) {
     std::string input("-2147483648");
-    ASSERT_EQ(-2147483648, myAtoi(input));
+    ASSERT_EQ(-2147483647 - 1, myAtoi(input));
 }
 
 TEST(PROBLEM_8, Example9) {
