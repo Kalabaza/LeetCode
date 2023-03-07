@@ -20,7 +20,7 @@
  */
 int myAtoi(std::string str) {
     int res = 0;
-    int32_t ind = 0;
+    uint32_t ind = 0;
     bool neg = false;
     bool pos = false;
     bool par = false;

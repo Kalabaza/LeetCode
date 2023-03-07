@@ -20,9 +20,9 @@ void rotate(std::vector<int>& nums, int k) {
     k = k % nums.size();
     // cnt will repeat the process of swaping numbers as many times
     // as elments there are in the vector, start marks the begining of the cycle
-    for (int32_t cnt = 0, start = 0; cnt < nums.size(); ++start) {
+    for (uint32_t cnt = 0, start = 0; cnt < nums.size(); ++start) {
         // this is the current index
-       int32_t cur = start;
+       uint32_t cur = start;
         // and also the current element (that will become the previous)
         int prev = nums[start];
         do {

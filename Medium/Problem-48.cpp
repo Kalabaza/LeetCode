@@ -11,9 +11,9 @@ void rotate(std::vector<std::vector<int32_t>>& matrix) {
     // this is the maximum index that a value can use
    int32_t size = matrix.size() - 1;
     // will work on levels on the matrix, the most outer level is the number 0
-    for(int32_t level = 0; level < matrix.size() / 2; ++level) {
+    for(uint32_t level = 0; level < matrix.size() / 2; ++level) {
         // this will iterate thru the values
-        for(int32_t ind = level; ind < size - level; ++ind) {
+        for(uint32_t ind = level; ind < size - level; ++ind) {
             // save the value from the upper left position for later
            int32_t tmp = matrix[level][ind];
 

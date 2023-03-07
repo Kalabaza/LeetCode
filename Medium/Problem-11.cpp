@@ -12,8 +12,10 @@
  * Notice that you may not slant the container.
  */
 
-int maxArea(std::vector<int>& height) {
+int32_t maxArea(std::vector<int>& /*height*/) {
+    int32_t result = 0;
+    return result;
 }
 
-TEST(PROBLEM_1, Example_1) {
+TEST(PROBLEM_11, Example_1) {
 }

@@ -12,7 +12,7 @@ int32_t firstUniqChar(std::string s) {
     for(auto &c : s)
         ++letters[c];
     // now go over the string to see which letter appears only once in that string
-    for(int32_t i = 0; i < s.size(); ++i) {
+    for(uint32_t i = 0; i < s.size(); ++i) {
         // if found, return the current position on the string
         if(letters[s[i]] == 1)
             return i;

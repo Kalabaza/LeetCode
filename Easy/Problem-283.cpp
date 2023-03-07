@@ -6,7 +6,7 @@
  * Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
  */
 void moveZeroes(std::vector<int>& nums) {
-    for(int32_t cur = 0, lastNonZero = 0; cur < nums.size(); ++cur) {
+    for(uint32_t cur = 0, lastNonZero = 0; cur < nums.size(); ++cur) {
          // find a non-zero value in the vector
          if(nums[cur] != 0)
              std::swap(nums[lastNonZero++], nums[cur]);
@@ -14,7 +14,7 @@ void moveZeroes(std::vector<int>& nums) {
 }
 
 void _moveZeroes2(std::vector<int>& nums) {
-    for(int32_t ind = 0, next; ind < nums.size(); ++ind) {
+    for(uint32_t ind = 0, next; ind < nums.size(); ++ind) {
         // find a number zero in the vector
         if(nums[ind] == 0) {
             next = ind + 1;
@@ -28,7 +28,7 @@ void _moveZeroes2(std::vector<int>& nums) {
 }
 
 void _moveZeroes(std::vector<int>& nums) {
-    for (int32_t i = 1; i < nums.size(); ++i) {
+    for (uint32_t i = 1; i < nums.size(); ++i) {
 		int current = nums[i];
 		int j = i - 1;
 		while (j >= 0 && nums[j] == 0) {

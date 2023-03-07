@@ -14,7 +14,7 @@ int removeDuplicates(std::vector<int>& nums) {
 
     // variables to hold the current and next valid index in the array
     int32_t cur = 0;
-    int32_t next = 1;
+    uint32_t next = 1;
     // go all over all the elements in the vector
     while(next < nums.size()) {
         // check if the current and next element are equal
