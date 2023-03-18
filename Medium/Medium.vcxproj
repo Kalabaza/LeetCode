@@ -74,7 +74,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)\GoogleTest;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\GoogleTest;$(SolutionDir)\Common;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\Libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -150,11 +150,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Problem-11.cpp" />
+    <ClCompile Include="Problem-15.cpp" />
+    <ClCompile Include="Problem-19.cpp" />
     <ClCompile Include="Problem-3.cpp" />
     <ClCompile Include="Problem-5.cpp" />
     <ClCompile Include="Problem-36.cpp" />
     <ClCompile Include="Problem-48.cpp" />
     <ClCompile Include="Problem-8.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Common\LinkedList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

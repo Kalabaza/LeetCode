@@ -4,7 +4,7 @@
  * Given a string 's', return the longest palindromic substring in 's'.
  */
 
-std::string longestPalindrome(std::string s) {
+std::string longestPalindrome(const std::string& s) {
    std::string longest;
    // Going from the first position to the last in the string
    for(int32_t index = 0; index < static_cast<int32_t>(s.size()); ++index) {
