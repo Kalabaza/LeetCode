@@ -7,22 +7,25 @@
  */
 
 ListNode* removeNthFromEnd(ListNode* head, int32_t n) {
-   // A dummy node is used before the head
+   // A dummy node is used before the head, this helps when the head is going to be removed
    auto dummy = new ListNode(0, head);
-   // The two pointers approach is used here
-   ListNode *left = dummy, *right = head;
-   // Move one pointer ahead as many places as n tells
-   while(n-- > 0 && nullptr != right) {
-      right = right->next;
+   // The two pointers approach is used here, the first pointer uses the dummy
+   // pointer and the second pointer uses the actual head, so the first pointer
+   // is one step behind, which is needed to remove the right element from the list
+   ListNode *first = dummy, *second = head;
+   // Move the second pointer ahead as many places as n tells
+   while(n-- > 0 && nullptr != second) {
+      second = second->next;
    }
-   // Now move the two pointers until the further pointer reaches the end
-   while(nullptr != right) {
-      left = left->next;
-      right = right->next;
+   // Now move the two pointers until the second pointer reaches the end
+   while(nullptr != second) {
+      first = first->next;
+      second = second->next;
    }
-   // The first pointer is behind the actual value that has to be removed
-   ListNode* tmp = left->next;
-   left->next = tmp->next;
+   // The first pointer is behind the actual value that has to be removed, use a temp
+   // pointer so that the memora can be released correctly
+   ListNode* tmp = first->next;
+   first->next = first->next->next;
    delete tmp;
    return dummy->next;
 }

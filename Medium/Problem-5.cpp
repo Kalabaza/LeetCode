@@ -13,9 +13,10 @@ std::string longestPalindrome(const std::string& s) {
          // A left and right pointers will be used to check the characters of
          // the new substring, to see if that is a palindrome
          int32_t left = index, right = index + offset;
-         while(left >= 0 && right < static_cast<int32_t>(s.size()) && s[left] == s[right]) {
+         while(left >= 0 && right < static_cast<int32_t>(s.size()) &&
+               s[left] == s[right]) {
             const int32_t size = right - left + 1;
-            // Check if a new substring is found
+            // Check if a new substring was found
             if(size > static_cast<int32_t>(longest.size())) {
                longest = s.substr(left, size);
             }

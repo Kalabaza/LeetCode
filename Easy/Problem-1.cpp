@@ -12,7 +12,7 @@
  */
 std::vector<int32_t> twoSum(const std::vector<int32_t>& nums, const int32_t target) {
    // A map is used to save the difference between one value and the target value, the index is the value in the map
-   std::map<int32_t, uint32_t> mapDiffs;
+   std::map<int32_t, int32_t> mapDiffs;
    // This vector will hold the result indexes
    std::vector<int32_t> result;
    // Go over all the numbers

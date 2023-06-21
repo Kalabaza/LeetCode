@@ -11,21 +11,22 @@ int32_t lengthOfLongestSubstring(const std::string& s) {
    // Since no repeated characters are allowed, the set saves the characters until a repeated one is found
    std::set<char> letters;
    std::size_t longest = 0;
-   std::size_t prev = 0;
+   std::size_t prevStart = 0;
    for(uint32_t index = 0; index < s.length(); ++index) {
-      // Once a repeated character is found, remove the characters until the repeated character was found
+      // Once a repeated character is found, remove the characters until this repeated character was found
       if(0 != letters.count(s[index])) {
          longest = std::max(longest, letters.size());
-         while(s[prev] != s[index]) {
-            letters.erase(s[prev++]);
+         while(s[prevStart] != s[index]) {
+            letters.erase(s[prevStart++]);
          }
-         // move the prev to the next position, after the repeated character
-         ++prev;
+         // move the prevStart to the next position, after the repeated character
+         ++prevStart;
       } else {
          // if no repeated character was found, add the current character to the set
          letters.insert(s[index]);
       }
    }
+   // check if there are still characters in the set or return the longest value found
    return static_cast<int32_t>(std::max(longest, (letters.size())));
 }
 

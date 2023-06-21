@@ -15,6 +15,8 @@ enable_testing()
 
 set(CMAKE_CXX_STANDARD 20)
 
+include_directories(${CMAKE_SOURCE_DIR}/Common/)
+
 function(defineTest)
 cmake_parse_arguments(
   PARSED_ARGS     # prefix of output variables

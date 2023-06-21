@@ -11,19 +11,28 @@
  */
 std::vector<std::vector<int32_t>> threeSum(std::vector<int32_t>& nums) {
    std::vector<std::vector<int32_t>> result;
-   // sort the input data to ease the search of results
+   // Sort the input data to ease the search of results
    std::sort(nums.begin(), nums.end());
    for (size_t index = 0; index < nums.size(); ++index) {
+      // If the current number is equal to the previous, go to the next number
       if (index > 0 && nums[index] == nums[index - 1])
          continue;
 
+      // Take the numbers from the left and right borders
       size_t left = index + 1, right = nums.size() - 1;
       while (left < right) {
          int sum = nums[index] + nums[left] + nums[right];
+         // If the sum is higher than 0, then move the right pointer, since
+         // the data is sorted, the bigger numbers are on the right, so a smaller
+         // number is needed
          if (sum > 0)
             --right;
+         // Otherwise, if the sum is lower than 0, a bigger number is needed, move
+         // the left pointer
          else if (sum < 0)
             ++left;
+         // When the sum is 0, save that number and move the left pointer to try getting
+         // a different triplet
          else {
             result.push_back(std::vector<int>{nums[index], nums[left], nums[right]});
             ++left;
