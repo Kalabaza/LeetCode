@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
 #include <map>
-#include <queue>
+#include <stack>
 #include <string>
 
 /**
@@ -15,9 +15,9 @@
  */
 
 bool isValid(std::string s) {
-    // Hold the characters in a queue, so always push at the top and also take
+    // Hold the characters in a stack, so always push at the top and also take
     // the newest element from the top.
-    std::queue<char> characters;
+    std::stack<char> characters;
     // This map is used to know which closing character is expected for each
     // opening bracket.
     std::map<char, char> closing{{'(',')'},{'{','}'},{'[',']'}};
@@ -34,7 +34,12 @@ bool isValid(std::string s) {
             case ')':
             case '}':
             case ']': {
-                auto top = characters.front();
+                // If there are no characters in the stack, this is no longer a
+                // valid string.
+                if (characters.empty())
+                    return false;
+
+                auto top = characters.top();
                 characters.pop();
                 // If the closing character is not the expected one, then this
                 // is not a valid string.
@@ -47,7 +52,7 @@ bool isValid(std::string s) {
         }
     }
 
-    // If there was not a mistake, then the queue muss be empty to have a valid
+    // If there was not a mistake, then the stack muss be empty to have a valid
     // string.
     return characters.empty();
 }
@@ -64,5 +69,10 @@ TEST(PROBLEM_20, Example2) {
 
 TEST(PROBLEM_20, Example3) {
     std::string s = "(]";
+    ASSERT_FALSE(isValid(s));
+}
+
+TEST(PROBLEM_20, Example4) {
+    std::string s = "([)]";
     ASSERT_FALSE(isValid(s));
 }
