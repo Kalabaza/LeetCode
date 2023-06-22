@@ -3,49 +3,62 @@
 #include <iostream>
 #include <vector>
 
-struct ListNode {
-   int32_t val;
-   ListNode *next;
-   ListNode() : val(0), next(nullptr) {}
-   ListNode(int32_t x) : val(x), next(nullptr) {}
-   ListNode(int32_t x, ListNode *next) : val(x), next(next) {}
+template <typename T>
+class ListNode {
+private:
+   T val_;
+   ListNode *next_;
+public:
+   ListNode() : val_(0), next_(nullptr) {}
+   ListNode(T val) : val_(val), next_(nullptr) {}
+   ListNode(T val, ListNode *next) : val_(val), next_(next) {}
+
+   void next(ListNode *next) { next_ = next; }
+   ListNode *next() { return next_; }
+
+   void val(T value) { val_ = value; }
+   T val() { return val_; }
 };
 
-inline ListNode* makeList(std::vector<int32_t> values) {
+template <typename T>
+inline ListNode<T>* makeList(std::vector<T> values) {
    if(values.empty())
       return nullptr;
-   ListNode* head = new ListNode(values[0]);
-   ListNode* cur = head;
+   ListNode<T>* head = new ListNode<T>(values[0]);
+   ListNode<T>* cur = head;
    for(size_t index = 1; index < values.size(); ++index) {
-      ListNode* tmp = new ListNode(values[index]);
-      cur->next = tmp;
+      ListNode<T>* tmp = new ListNode<T>(values[index]);
+      cur->next(tmp);
       cur = tmp;
    }
    return head;
 }
 
-inline void deleteList(ListNode* head) {
+template <typename T>
+inline void deleteList(ListNode<T>* head) {
    while(nullptr != head) {
       auto cur = head;
-      head = head->next;
+      head = head->next();
       delete cur;
    }
 }
 
-inline std::vector<int32_t> listToVector(ListNode* head) {
+template <typename T>
+inline std::vector<int32_t> listToVector(ListNode<T>* head) {
    std::vector<int32_t> values;
    auto cur = head;
    while(nullptr != cur) {
-      values.push_back(cur->val);
-      cur = cur->next;
+      values.push_back(cur->val());
+      cur = cur->next();
    }
    return values;
 }
 
-inline void printList(ListNode* head) {
+template <typename T>
+inline void printList(ListNode<T>* head) {
    while(nullptr != head) {
-      std::cout << head->val << "->";
-      head = head->next;
+      std::cout << head->val() << "->";
+      head = head->next();
    }
    std::cout << "nullptr" << std::endl;
 }
