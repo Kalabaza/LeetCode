@@ -32,8 +32,8 @@ endfunction()
 
 file(GLOB EASY_SOURCES   "Easy/*.cpp")
 file(GLOB MEDIUM_SOURCES "Medium/*.cpp")
-#file(GLOB HARD_SOURCES   "Hard/*.cpp")
+file(GLOB HARD_SOURCES   "Hard/*.cpp")
 
 defineTest(TESTNAME TestEasy   SOURCES ${EASY_SOURCES})
 defineTest(TESTNAME TestMedium SOURCES ${MEDIUM_SOURCES})
-#defineTest(TESTNAME TestHard   SOURCES ${HARD_SOURCES})
+defineTest(TESTNAME TestHard   SOURCES ${HARD_SOURCES})

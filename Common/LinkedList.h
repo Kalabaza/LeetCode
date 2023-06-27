@@ -3,24 +3,25 @@
 #include <iostream>
 #include <vector>
 
-template <typename T>
+// Templated LinkedList
+template <typename T = int32_t>
 class ListNode {
 private:
    T val_;
-   ListNode *next_;
+   ListNode<T> *next_;
 public:
    ListNode() : val_(0), next_(nullptr) {}
    ListNode(T val) : val_(val), next_(nullptr) {}
-   ListNode(T val, ListNode *next) : val_(val), next_(next) {}
+   ListNode(T val, ListNode<T> *next) : val_(val), next_(next) {}
 
-   void next(ListNode *next) { next_ = next; }
-   ListNode *next() { return next_; }
+   void next(ListNode<T> *next) { next_ = next; }
+   ListNode<T> *next() { return next_; }
 
    void val(T value) { val_ = value; }
    T val() { return val_; }
 };
 
-template <typename T>
+template <typename T = int32_t>
 inline ListNode<T>* makeList(std::vector<T> values) {
    if(values.empty())
       return nullptr;
@@ -34,7 +35,7 @@ inline ListNode<T>* makeList(std::vector<T> values) {
    return head;
 }
 
-template <typename T>
+template <typename T = int32_t>
 inline void deleteList(ListNode<T>* head) {
    while(nullptr != head) {
       auto cur = head;
@@ -43,7 +44,7 @@ inline void deleteList(ListNode<T>* head) {
    }
 }
 
-template <typename T>
+template <typename T = int32_t>
 inline std::vector<int32_t> listToVector(ListNode<T>* head) {
    std::vector<int32_t> values;
    auto cur = head;
@@ -54,7 +55,7 @@ inline std::vector<int32_t> listToVector(ListNode<T>* head) {
    return values;
 }
 
-template <typename T>
+template <typename T = int32_t>
 inline void printList(ListNode<T>* head) {
    while(nullptr != head) {
       std::cout << head->val() << "->";
