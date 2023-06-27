@@ -9,11 +9,11 @@
  */
 
 int strStr(std::string haystack, std::string needle) {
-   uint32_t n = needle.size();
+    size_t n = needle.size();
     // if the needle is an empty string, just retrun 0 per convention
     if(n == 0)
         return 0;
-    uint32_t h = haystack.size();
+    size_t h = haystack.size();
     // only do the validation if the needle is shorter than or equal in size to the haystack
     if(n <= h) {
         // Go all over the text from the haystack until the first letter of the needle is found

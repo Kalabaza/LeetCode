@@ -18,7 +18,7 @@ std::vector<int> plusOne(std::vector<int>& digits) {
         // put zero in the last digit
         res[res.size() - 1] = 0;
         // start the loop from the second last digit, and repeat as long as there is an overflow
-        for(int ind = res.size() - 2; overflow && ind >= 0; --ind) {
+        for(int32_t ind = static_cast<int32_t>(res.size()) - 2; overflow && ind >= 0; --ind) {
             // if the current number is 9, then the over flow continues
             if(res[ind] == 9)
                 res[ind] = 0;

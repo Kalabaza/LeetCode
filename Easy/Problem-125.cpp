@@ -19,7 +19,7 @@ bool isPalindrome(std::string s) {
     if(s.size() == 0)
         return true;
     // now compare from the beggining to the end to see if the characters are the same
-    for(uint32_t i = 0, j = s.size() - 1; i < j; ++i, --j)
+    for(size_t i = 0, j = s.size() - 1; i < j; ++i, --j)
         if(s[i] != s[j])
             return false;
     return true;

@@ -15,7 +15,7 @@
 ListNode<>* mergeList(ListNode<>* list1, ListNode<>* list2) {
     // Using a dummy head, to insert the values and return the new head of the
     // merged LinkedLists
-    ListNode<>* head = new ListNode();
+    ListNode<>* head = new ListNode<>();
     ListNode<>* tail = head;
 
     while(nullptr != list1 && nullptr != list2) {

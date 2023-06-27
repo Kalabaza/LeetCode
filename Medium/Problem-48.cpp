@@ -9,7 +9,7 @@
  */
 void rotate(std::vector<std::vector<int32_t>>& matrix) {
     // this is the maximum index that a value can use
-   int32_t size = matrix.size() - 1;
+   size_t size = matrix.size() - 1;
     // will work on levels on the matrix, the most outer level is the number 0
     for(uint32_t level = 0; level < matrix.size() / 2; ++level) {
         // this will iterate thru the values

@@ -57,7 +57,7 @@ void _rotate1(std::vector<int>& nums, int k) {
         // save the last element
         int tmp = nums[nums.size() - 1];
         // move the elements one position to the right
-        for(int32_t last = nums.size() - 1; last > 0; --last) {
+        for(size_t last = nums.size() - 1; last > 0; --last) {
             nums[last] = nums[last - 1];
         }
         // now copy the saved element into the first position
