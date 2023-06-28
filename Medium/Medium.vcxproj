@@ -155,6 +155,7 @@
     <ClCompile Include="Problem-15.cpp" />
     <ClCompile Include="Problem-19.cpp" />
     <ClCompile Include="Problem-3.cpp" />
+    <ClCompile Include="Problem-33.cpp" />
     <ClCompile Include="Problem-5.cpp" />
     <ClCompile Include="Problem-36.cpp" />
     <ClCompile Include="Problem-48.cpp" />
