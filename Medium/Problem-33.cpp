@@ -15,55 +15,53 @@
  */
 
 int32_t search(std::vector<int32_t>& nums, int32_t target) {
-	if (0 == nums.size())
-		return -1;
-	int32_t left = 0, right = static_cast<int32_t>(nums.size()) - 1;
-	while (left <= right) {
-		int32_t middle = (left + right) / 2;
-		if (target == nums[middle])
-			return middle;
-		// The left side of the array is sorted
-		if (nums[left] <= nums[middle]) {
-			if (target > nums[middle] || target < nums[left])
-				left = middle + 1;
-			else
-				right = middle - 1;
-		}
-		// The right side of the array is sorted
-		else {
-			if (target < nums[middle] || target > nums[right])
-				right = middle - 1;
-			else
-				left = middle + 1;
-		}
-	}
-	return -1;
+    if (0 == nums.size()) return -1;
+    int32_t left = 0, right = static_cast<int32_t>(nums.size()) - 1;
+    while (left <= right) {
+        int32_t middle = (left + right) / 2;
+        if (target == nums[middle]) return middle;
+        // The left side of the array is sorted
+        if (nums[left] <= nums[middle]) {
+            if (target > nums[middle] || target < nums[left])
+                left = middle + 1;
+            else
+                right = middle - 1;
+        }
+        // The right side of the array is sorted
+        else {
+            if (target < nums[middle] || target > nums[right])
+                right = middle - 1;
+            else
+                left = middle + 1;
+        }
+    }
+    return -1;
 }
 
 TEST(PROBLEM_33, Example1) {
-	std::vector<int32_t> nums{ 4,5,6,7,0,1,2 };
-	int32_t target = 0;
-	constexpr int32_t output = 4;
-	ASSERT_EQ(output, search(nums, target));
+    std::vector<int32_t> nums{4, 5, 6, 7, 0, 1, 2};
+    int32_t target = 0;
+    constexpr int32_t output = 4;
+    ASSERT_EQ(output, search(nums, target));
 }
 
 TEST(PROBLEM_33, Example2) {
-	std::vector<int32_t> nums{ 4,5,6,7,0,1,2 };
-	int32_t target = 3;
-	constexpr int32_t output = -1;
-	ASSERT_EQ(output, search(nums, target));
+    std::vector<int32_t> nums{4, 5, 6, 7, 0, 1, 2};
+    int32_t target = 3;
+    constexpr int32_t output = -1;
+    ASSERT_EQ(output, search(nums, target));
 }
 
 TEST(PROBLEM_33, Example3) {
-	std::vector<int32_t> nums{ 1 };
-	int32_t target = 0;
-	constexpr int32_t output = -1;
-	ASSERT_EQ(output, search(nums, target));
+    std::vector<int32_t> nums{1};
+    int32_t target = 0;
+    constexpr int32_t output = -1;
+    ASSERT_EQ(output, search(nums, target));
 }
 
 TEST(PROBLEM_33, Example4) {
-	std::vector<int32_t> nums{};
-	int32_t target = 0;
-	constexpr int32_t output = -1;
-	ASSERT_EQ(output, search(nums, target));
+    std::vector<int32_t> nums{};
+    int32_t target = 0;
+    constexpr int32_t output = -1;
+    ASSERT_EQ(output, search(nums, target));
 }
